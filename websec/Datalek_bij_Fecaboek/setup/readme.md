@@ -1,0 +1,3 @@
+- `cd ./source/`
+- `docker-compose up --build`
+- navigate to `http://localhost` (default port `:80`)

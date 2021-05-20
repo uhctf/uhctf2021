@@ -1,0 +1,8 @@
+- Find the encrypted flag in `User Comment` with one of these options
+  - exiftools flag.png
+  - strings flag.png
+  - open in hex editor and read ascii at the bottom
+- Find encryption parameters in image visually with one of these options
+  - Decrease brightness (by about 150%)
+  - Apply a pixel value threshold > B/W image
+  - Apply curves/levels adjustment with slider to max brightness

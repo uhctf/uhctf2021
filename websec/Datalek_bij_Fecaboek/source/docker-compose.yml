@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+
+    db:
+        build: ./pg/
+        container_name: uhctf_benikerbij_postgres
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=Hgn38nnsDHJg391
+
+    node:
+        build: ./node/
+        container_name: uhctf_benikerbij_node
+        restart: always
+        ports:
+            - 80:8088 

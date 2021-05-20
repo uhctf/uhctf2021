@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+
+    app:
+        build: ./
+        restart: always
+        environment:
+            - UHCTF_FLAG=UHCTF{esc4p3-YOUR-r3g3x-57jS}
+        ports:
+            - 80:3000 

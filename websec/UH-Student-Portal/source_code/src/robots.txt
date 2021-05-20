@@ -1,0 +1,2 @@
+User-agent: Googlebot
+Disallow: /s3cr3tl0g1n-41df2

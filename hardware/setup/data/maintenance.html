@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <title>Maintenance mode</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Discombobulator</h1>
+        <div class="alert alert-warning" role="alert">
+            Maintenance mode page.
+        </div>
+        <div class="alert alert-info" id="flag">
+        </div>
+        <div class="container-sm">
+            <h2>Wifi Settings</h2>
+            <p>Wifi this device connects with during normal operation.</p>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="ssid" class="form-label">SSID</label>
+                    <input type="text" class="form-control" name="ssid">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Key (WPA2)</label>
+                    <input type="password" class="form-control" name="pwd">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="container">
+            <h2>Misc.</h2>
+            <p>There are four security keys needed to backup data (sensitive data!!) (Key format: UHCTF{})</p>
+            <form action="/backup" method="POST">
+                <div class="mb-3">
+                    <label for="key1" class="form-label">KEY 1</label>
+                    <input type="text" class="form-control" name="key1">
+                </div>
+                <div class="mb-3">
+                    <label for="key2" class="form-label">KEY 2</label>
+                    <input type="text" class="form-control" name="key2">
+                </div>
+                <div class="mb-3">
+                    <label for="key3" class="form-label">KEY 3</label>
+                    <input type="text" class="form-control" name="key3">
+                </div>
+                <div class="mb-3">
+                    <label for="key4" class="form-label">KEY 4</label>
+                    <input type="text" class="form-control" name="key4">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function (e) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            document.getElementById("flag").innerText = urlParams.get('flag');
+        }
+    </script>
+</body>
+
+</html>

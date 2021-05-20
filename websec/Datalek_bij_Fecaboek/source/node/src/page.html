@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalek bij Fecaboek - Ben ik erbij?</title>
+    <style>
+        body {
+            background-color: rgb(228, 229, 247);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .card {
+            font-family: sans-serif;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3em;
+            margin-bottom: 3em;
+            border-radius: 10px;
+            background-color: #ffff;
+            padding: 1.8rem;
+            padding-bottom: 0.7rem;
+            box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: bold;
+            width: 300px;
+        }
+
+        .explanation {
+            text-align: center;
+            width: 300px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .btn-text {
+            margin: 0;
+        }
+
+        .or {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid rgb(245 239 239);
+            line-height: 0.1em;
+            margin: 25px 0;
+        }
+
+        .or span {
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .name-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-form label {
+            color: rgb(170 166 166);
+        }
+
+        input[type="text"] {
+            padding: 15px 20px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .cta-btn {
+            background-color: rgb(69, 69, 185);
+            color: white;
+            padding: 18px 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: rgb(48, 48, 129);
+        }
+
+        .cta-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.3;
+            background-color: rgb(48, 48, 129);
+        }
+
+        .tip {
+            font-size: 10.5px;
+            color: #AAA;
+            margin-top: -10px;
+        }
+
+        .result {
+            width: 100%;
+            padding: 30px 20px;
+            background: rgb(218, 218, 245);
+            border: 1px solid rgb(69, 69, 185);
+            color: rgb(69, 69, 185);
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .result.positive {
+            background: #daf5e2;
+            border: 1px solid #2b942d;
+            color: #2b942d;
+            margin-bottom: 20px;
+        }
+
+        .result.negative {
+            background: #f5dada;
+            border: 1px solid #942b2b;
+            color: #942b2b;
+        }
+
+        .result.warning {
+            background: #f5f0da;
+            border: 1px solid #946a2b;
+            color: #94662b;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .result.warning a {
+            color: #94662b;
+            text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .result.busy {
+            background: #dae3f5;
+            border: 1px solid #4545b8;
+            color: #4545b8;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .result.busy a {
+            color: #4545b8;
+            text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .credit {
+            font-family: sans-serif;
+            margin-top: -10px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            color: #AAA;
+            font-size: 12px;
+        }
+
+        .credit a {
+            color: rgb(48, 48, 129);
+        }
+
+        .credits {
+            margin-top: 10px;
+        }
+
+        .country-switch {
+            position: fixed;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            left: 0;
+            color: #999;
+            font-size: 13px;
+            padding-top: 15px;
+            padding-bottom: 5px;
+            box-sizing: border-box;
+            background: rgb(228, 229, 247);
+            z-index: 1;
+        }
+
+        .country-switch a {
+            color: rgb(48, 48, 129);
+        }
+
+        .phonelabel {
+            height: 18px;
+            line-height: 18px;
+        }
+
+        .flag-container {
+            display: inline;
+        }
+
+        .panels {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        .search {
+            box-sizing: border-box;
+            width: 350px;
+            margin-right: 30px;
+        }
+
+        .protest {
+            width: 100%;
+            width: 315px;
+        }
+
+        .protest .list {
+            padding-left: 20px;
+        }
+
+        .protest .list .list-item {
+            margin: 20px auto;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .protest .list .list-item a {
+            font-size: 14px;
+            color: #444;
+            text-decoration: underline;
+        }
+
+        .protest .list .list-item::marker {
+            color: rgb(170 166 166);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .protest .protest-text {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .data-source {
+            color: #AAA;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 700px) {
+            .card {
+                width: 300px;
+            }
+
+            .panels {
+                flex-direction: column-reverse;
+            }
+
+            .search,
+            .protest {
+                width: 100%;
+            }
+
+            .search {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="country-switch">Versie voor L33T Hackers. Zoek je de <a href="https://benikerbij.be">officiële
+            versie</a>?</div>
+    <div class="card">
+        <form action="/" method="POST" id="form">
+            <h2 class="title">Datalek bij Fecaboek</h2>
+            <p class="explanation">Bij Fecaboek zijn er gegevens gelekt van veel mensen wereldwijd. Daar zijn ook meer
+                dan vijftien L33T hackers bij. Wil jij weten of jouw gegevens gelekt zijn?</p>
+            <div class="panels">
+                <div class="protest">
+                    <p class="or"><span>Onderneem actie</span></p>
+                    <p class="protest-text">Wist je dat niet alle developers kaas hebben gegeten van (web) security?
+                        Zelfs de meest basic fouten komen vaak voor in the wild. Bovendien moet je geen
+                        elite-programmeur zijn om een viral tool te maken.</p>
+                    <p class="protest-text">Jij als ethische hacker kan hen helpen. Vind je een (security related)
+                        foutje? Meld het op een verantwoordelijke manier aan de developers.</p>
+                    <ul class="list">
+                        <li class="list-item">Zoek op of het bedrijf in kwestie een policy heeft rond vulnerability
+                            reporting</li>
+                        <li class="list-item">Niet het geval? Mail het bedrijf met de vraag hoe je het best het foutje
+                            meldt</li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <p class="or"><span>Zoek het op</span></p>
+
+                    <div class="name-form">
+                        <label for="phone" class="phonelabel"> <b>Telefoonnummer</b>
+                            <div id="flagContainer" class="flag-container"><span id="flag"></span></div>
+                        </label>
+                        <input type="text" placeholder="voorbeeld: 1337 802 79 96" name="phone" id="phone" required>
+                        <p class="tip">Het lek ontstond door een bug met telefoonnummers. Daarom kunnen we iedereen
+                            opzoeken via telefoonnummer en hebben we dit nodig om te checken of jij bij het lek zit. Wij
+                            houden geen data bij. Opzoeking gebeurt door een dure api (zolang de voorraad strekt). Het
+                            systeem werkt super veilig en super snel. <a class="data-source" href="about">Lees meer over
+                                hoe wij werken</a>.</p>
+                    </div>
+                    <button class="cta-btn" type="submit" id="btn">Ben ik erbij?</button>
+                    <div class="result positive" id="result-positive" style="display: none">Goed nieuws! Het nummer dat je hebt ingegeven, is niet te vinden in het lek.</div>
+                    <div class="result negative" id="result-negative" style="display: none">Let op! Het nummer dat je hebt ingegeven, komt voor in het datalek. Dat
+                        betekent dat je naam, telefoonnummer, profielfoto en geslacht zeker al gelekt zijn. Mogelijk ook
+                        je woonplaats, e-mailadres, job, relatiestatus en geboortedatum.</div>
+                    <div class="result warning" id="result-warning" style="display: none">Wat nu? Nu je telefoonnummer publiek is, wees extra aandachtig voor
+                        telefoontjes, SMS- en WhatsApp-berichten. Geef nooit wachtwoorden, pincodes ... door via
+                        telefoon of bericht. Doe geen betalingen die je niet verwacht. Contacteer de vermoedelijke
+                        afzender via een ander kanaal (e-mailadres of nummer dat je zelf via de officiële website gaat
+                        zoeken) indien je twijfelt. Meer tips op <a href="https://safeonweb.be">safeonweb.be</a> of <a
+                            href="https://veiliginternetten.nl">veiliginternetten.nl</a>.</div>
+                </div>
+            </div>
+            <div class="credits">
+                <p class="credit">Tool door <a href="https://martijnluyckx.be">Martijn Luyckx</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        form = document.getElementById('form');
+        phoneField = document.getElementById('phone');
+        flag = document.getElementById('flag');
+        button = document.getElementById('btn');
+        resultPositive = document.getElementById('result-positive');
+        resultWarning = document.getElementById('result-warning');
+        resultNegative = document.getElementById('result-negative');
+        prevContent = "";
+        final = "";
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            formatPhone();
+            button.disabled = true;
+            button.innerText = 'Please wait...';
+            resultPositive.style.display = 'none';
+            resultWarning.style.display = 'none';
+            resultNegative.style.display = 'none';
+            
+            (async () => {
+                const rawResponse = await fetch(`/api`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'text/plain'
+                    },
+                    body: final,
+                });
+                const content = await rawResponse.json();
+
+                phoneField.value = "";
+                button.disabled = false;
+                button.innerText = 'Ben ik erbij?';
+                if (content['data'] !== undefined) {
+                    if (content['data'].length > 0) {
+                        resultPositive.style.display = 'none';
+                        resultWarning.style.display = 'block';
+                        resultNegative.style.display = 'block';
+                    } else {
+                        resultPositive.style.display = 'block';
+                        resultWarning.style.display = 'none';
+                        resultNegative.style.display = 'none';
+                    }
+                } else {
+                    if (content['message'] !== undefined) {
+                        alert(content['message']);
+                    } else {
+                        alert(content['client did not understand the server response']);
+                    }
+                }
+            })();
+        });
+
+        function formatPhone() {
+            // remove leading and trailingspaces
+            if (phoneField.value.trim() === prevContent.trim()) return;
+            phoneField.value = phoneField.value.trim();
+
+            // only allow spaces and numbers
+            phoneField.value = phoneField.value.replace(/[^\d ]/g, '').trim();
+
+            // cut at max length
+            if (phoneField.value.length > 16) {
+                phoneField.value = phoneField.value.substring(0, 16);
+            }
+            prevContent = phoneField.value;
+            final = phoneField.value.replace(/[\s]/g, '').trim();
+            if (final.length >= 2) {
+                if (final.substring(0, 2) === '69') {
+                    flag.innerText = "♋️";
+                }
+                else if (final.substring(0, 3) === '420') {
+                    flag.innerText = "🌿";
+                }
+                else if (final.substring(0, 4) === '1337') {
+                    flag.innerText = "🐱‍💻";
+                }
+                else { flag.innerText = ""; }
+            } else { flag.innerText = ""; }
+        }
+        phoneField.addEventListener('change', formatPhone);
+        phoneField.addEventListener('keyup', formatPhone);
+        phoneField.addEventListener('keydown', formatPhone);
+        phoneField.addEventListener('paste', formatPhone);
+    </script>
+</body>
+
+</html>

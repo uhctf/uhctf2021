@@ -1,0 +1,1 @@
+Based on a bug in real life where a domain was checked with regex `/domain.com/` (dot not escaped) which could be bypassed using `domainxcom.attacker.com`

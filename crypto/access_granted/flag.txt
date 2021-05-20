@@ -1,0 +1,14 @@
+Flag: UHCTF{48-48-48-722400}
+
+Part4 is simply a linear operation in which memcmp and memcpy is used. The last 16 bit is checked first and then later the first 16 bits of part4 are checked.
+
+For part1,part2 and part 3, you can derive the following equations:
+part1+part2 = 96
+part2 = part3
+part2 > 40
+part1 - part2 - part3 < 0
+
+This will give you '40 <= part2 <= 96'.
+Then part2 must be divisible by exactly 2,3,4,6,8,12,16 when checked in range [2,20]. The only number that satifies this constraint for part2 is 48.
+Finally, fill in the equation and get the result for part1, part2 and part3.
+

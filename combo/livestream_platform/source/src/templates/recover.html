@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Potvos video- & livestream-platform</title>
+
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo-potvos.svg">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background: #fff6ea;">
+
+    <div class="preloader"></div>
+
+    <div class="backdrop"></div>
+
+    <div class="main-wrapper">
+        <img src="images/logo-potvos.svg" alt="logo" class="logo-backdrop" style="
+        position: fixed;
+        height: 70vh;
+        left: 50vw;
+        transform: translateX(-90%);
+        filter: blur(20px);
+        opacity: 0.3;
+        bottom: 20px;
+    ">
+        <!-- header wrapper -->
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <a href="/" class="logo float-none mt-4"><img src="images/logo-potvos.svg" style="width:50px;" alt="logo"></a>
+                        <h1 class="logo-text">Potvos</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header wrapper -->
+
+        <section class="form-wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-5">
+                        <div class="form-div text-center" style="margin-bottom: 60px; margin-top: 60px;">
+                            <h2>Recover your account</h2>
+                            <p>We'll help you get right back into the action. Just prove us that it's really you trying
+                                to sign into <span style="font-family: monospace">tim.potvos</span> by answering your
+                                security questsions.</p>
+                            <form action="recover" method="POST">
+                                <div class="form-group mt-5">
+                                    <label for="q1" class="recovery-label">What is the website domain of the best firm to call for qualitative livestreams in Hasselt?</label>
+                                    <input class="form-control {{attempted ? (q1Correct ? 'correct' : 'wrong') : ''}}" type="text" name="q1" placeholder="{{(attempted and not q1Correct)? 'Try again...' : 'Type your answer...'}}" id="q1" value="{{(attempted and q1Correct)? q1Value : ''}}">
+                                </div>
+                                <div class="form-group mt-5">
+                                    <label for="q2" class="recovery-label">What is the name of the best film studio in Hasselt?</label>
+                                    <input class="form-control {{attempted ? (q2Correct ? 'correct' : 'wrong') : ''}}" type="text" name="q2" placeholder="{{(attempted and not q2Correct)? 'Try again...' : 'Type your answer...'}}" id="q2" value="{{(attempted and q2Correct)? q2Value : ''}}">
+                                </div>
+                                <div class="form-group mt-5">
+                                    <label for="q2" class="recovery-label">The founder of aforementioned firm has an office at EDM. What is its room number?</label>
+                                    <input class="form-control {{attempted ? (q3Correct ? 'correct' : 'wrong') : ''}}" type="text" name="q3" placeholder="{{(attempted and not q3Correct)? 'Try again...' : 'Type your answer...'}}" id="q2" value="{{(attempted and q3Correct)? q3Value : ''}}">
+                                </div>
+                                <div class="form-group button-block text-center">
+                                    <button class="form-btn">Recover account</button>
+                                    <p class="sign-up-text">Want go go back? <a href="login" style="color: orange">Go
+                                            to the login page</a>.</p>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </div>
+
+
+
+
+    <script src="js/plugin.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

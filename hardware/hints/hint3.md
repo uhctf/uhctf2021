@@ -1,0 +1,1 @@
+Have you set wifi credentials? If so where can you find the device?

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <title>Discombobulator</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Discombobulator</h1>
+    <div class="alert alert-info" id="flag">
+    </div>
+    <div class="container">
+      <h2>Update service</h2>
+      <p>Check update service for new firmware.</p>
+      <form action="/update" method="POST">
+        <button type="submit" class="btn btn-primary">Check Updates</button>
+      </form>
+      <p id="update"></p>
+    </div>
+  </div>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script>
+    window.onload = function (e) {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      document.getElementById("flag").innerText = urlParams.get('flag');
+      if (urlParams.get('upd') == "0") {
+        document.getElementById("update").innerText = "No update found";
+      }
+    }
+  </script>
+</body>
+
+</html>

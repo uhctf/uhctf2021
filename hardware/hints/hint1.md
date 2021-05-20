@@ -1,0 +1,1 @@
+This device can be quite chatty when attached to a computer.
